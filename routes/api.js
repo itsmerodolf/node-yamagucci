@@ -9,22 +9,22 @@ const Ingredient = require('../models/Ingredient');
 const ingredientController = require('../controllers/ingredientController')
 
 /* GET home page. */
-router.get('/ingredients', ingredientController.getIngredients);
+// router.get('/ingredients', ingredientController.getIngredients);
 
-router.post('/ingredients', ingredientController.postIngredients);
+// router.post('/ingredients', ingredientController.postIngredients);
 
-router.get('/ingredients/:id/edit', ingredientController.getEditIngredient);
+// router.get('/ingredients/:id/edit', ingredientController.getEditIngredient);
 
-router.post('/ingredients/:id/edit', ingredientController.updateIngredient);
+// router.post('/ingredients/:id/edit', ingredientController.updateIngredient);
 
 
-router.get('/ingredient/:id/delete', function(req, res){
-	Ingredient.findByIdAndRemove({_id: req.params.id},
-	   function(err){
-		if(err) res.json(err);
-		else    res.redirect('/');
-	});
-});
+// router.get('/ingredient/:id/delete', function(req, res){
+// 	Ingredient.findByIdAndRemove({_id: req.params.id},
+// 	   function(err){
+// 		if(err) res.json(err);
+// 		else    res.redirect('/');
+// 	});
+// });
 
 router.get('/api/ingredients', ingredientController.getIngredientsApi);
 

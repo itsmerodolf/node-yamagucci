@@ -14,11 +14,12 @@ var app = express();
 var jwt = require('jsonwebtoken');
 var token = jwt.sign({ email: 'shouhei.yamauchi@live.com' }, 'secretcode');
 console.log(token)
+// process.env.SHOUHEI_API
 
 var mongoose = require('mongoose');
 
 // database is called recipes
-mongoose.connect(process.env.RECIPE_DB);
+mongoose.connect(process.env.RECIPES_DB);
 const { connection: db } = mongoose;
 
 db.on('error', console.error.bind(console, 'connection error:'));

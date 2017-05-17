@@ -44,7 +44,7 @@ exports.postIngredientsApi = (req, res) => {
   ingredient.name = name;
   ingredient.save()
     .then(() => {
-      res.redirect('/api/ingredients')
+      res.json(ingredient)
     });
 };
 
@@ -87,6 +87,11 @@ exports.deleteIngredientApi = function(req, res){
 	Ingredient.findByIdAndRemove({_id: req.params.id},
 	   function(err){
 		if(err) res.json(err);
-		else    res.redirect('/api/ingredients');
+		else {
+      Ingredient.find()
+        .then(ingredients => {
+          res.json(ingredients)
+        })
+    };
 	});
 };
