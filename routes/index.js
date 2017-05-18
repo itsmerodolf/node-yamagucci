@@ -36,6 +36,6 @@ router.get('/api/ingredients/:id', ingredientController.getIngredientApi);
 
 router.post('/api/ingredients/:id', ingredientController.updateIngredientApi);
 
-router.delete('/api/ingredients/:id', ingredientController.deleteIngredientApi);
+router.post('/api/ingredients/:id', ingredientController.deleteIngredientApi);
 
 module.exports = router;
