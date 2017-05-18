@@ -84,6 +84,7 @@ exports.updateIngredientApi = (req, res) => {
 };
 
 exports.deleteIngredientApi = (req, res) => {
+  console.log('delete params: ', req.params)
 	Ingredient.findOneAndRemove({ _id: req.params.id }, (err, ingredient) => {
 		if(err) { res.json(err) };
 		res.json(ingredient);
