@@ -40,6 +40,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var middleware = require('./middleware/middleware')
+
+const optionsCB = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'DELETE');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type');
+
+  next();
+}
+
+app.options('/api/ingredients/:id', optionsCB);
 //app.use(middleware.mw)
 app.use('/api/*', authApi);
 app.use('/', index);

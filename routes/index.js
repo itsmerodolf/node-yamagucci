@@ -36,16 +36,6 @@ router.get('/api/ingredients/:id', ingredientController.getIngredientApi);
 
 router.post('/api/ingredients/:id', ingredientController.updateIngredientApi);
 
-const optionsCB = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'DELETE');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type');
-
-  next();
-}
-
-router.options('/api/ingredients/:id', optionsCB);
-
 router.delete('/api/ingredients/:id', ingredientController.deleteIngredientApi);
 
 module.exports = router;
