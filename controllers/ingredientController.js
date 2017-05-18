@@ -83,15 +83,9 @@ exports.updateIngredientApi = (req, res) => {
   });
 };
 
-exports.deleteIngredientApi = function(req, res){
-	Ingredient.findByIdAndRemove({_id: req.params.id},
-	   function(err){
-		if(err) res.json(err);
-		else {
-      Ingredient.find()
-        .then(ingredients => {
-          res.json(ingredients)
-        })
-    };
+exports.deleteIngredientApi = (req, res) => {
+	Ingredient.findOneAndRemove({ _id: req.params.id }, (err, ingredient) => {
+		if(err) { res.json(err) };
+		res.json(ingredient);
 	});
 };
