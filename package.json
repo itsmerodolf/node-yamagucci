@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "watch": "nodemon ./bin/www"
+    "watch": "nodemon ./bin/www",
+    "test": "mocha"
   },
   "engines": {
     "node": "7.4.0"
@@ -25,5 +26,9 @@
   "main": "app.js",
   "author": "Jamie",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
 }
